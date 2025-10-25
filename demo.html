@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Swaniti Foundation — Strengthening Public Systems</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* -------------------------
+     GLOBAL / THEME (inline)
+     ------------------------- */
+  :root{
+    --bg:#f6f8fb;
+    --surface:#ffffff;
+    --muted:#6b7280;
+    --ink:#0f1724;
+    --brand:#114b7a;      /* deep institutional blue */
+    --accent:#f2b705;     /* warm highlight for calls */
+    --card-shadow: 0 10px 30px rgba(15,23,36,0.06);
+    --radius:12px;
+    --maxW:1180px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:var(--maxW);margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:Merriweather,serif;color:var(--brand);margin:0 0 10px}
+  p{margin:0 0 14px;color:#374151;line-height:1.6}
+
+  /* -------------------------
+     TOPBAR + NAV
+     ------------------------- */
+  .topbar{background:linear-gradient(90deg,var(--brand), #0e3f64);color:#fff;padding:8px 0;text-align:center;font-weight:600;font-size:13px}
+  header.site-header{background:var(--surface);position:sticky;top:0;z-index:80;box-shadow:0 6px 18px rgba(12,20,40,0.04)}
+  .site-header .container{display:flex;align-items:center;justify-content:space-between;padding:18px 20px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .logo{
+    width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#f6c76b);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--brand);font-size:20px;
+    box-shadow:0 6px 18px rgba(18,34,56,0.08);
+  }
+  .brand h4{margin:0;font-size:18px;letter-spacing:0.02em;color:var(--brand);font-weight:800}
+  nav.primary{display:flex;gap:18px;align-items:center}
+  nav.primary a{padding:8px 10px;border-radius:8px;color:var(--brand);font-weight:600;font-size:15px}
+  .nav-cta{background:var(--brand);color:#fff;padding:10px 14px;border-radius:10px;font-weight:700;box-shadow:0 8px 22px rgba(17,75,122,0.12)}
+  /* mobile nav */
+  .menu-toggle{display:none;background:#f1f5f9;border-radius:10px;padding:8px;cursor:pointer}
+
+  /* -------------------------
+     HERO (mission-focused)
+     ------------------------- */
+  .hero{display:grid;grid-template-columns:1fr 420px;gap:34px;align-items:center;padding:64px 0}
+  .hero .eyebrow{color:var(--muted);font-weight:700;letter-spacing:0.06em}
+  .hero h1{font-size:36px;line-height:1.02}
+  .hero p{max-width:640px}
+  .hero .controls{display:flex;gap:12px;margin-top:18px}
+  .btn-primary{background:var(--brand);color:white;padding:12px 18px;border-radius:10px;font-weight:700}
+  .btn-ghost{background:transparent;border:2px solid rgba(15,23,36,0.06);padding:10px 16px;border-radius:10px;font-weight:700}
+
+  /* quick stats tile */
+  .stats-row{display:flex;gap:12px;margin-top:24px}
+  .stat-card{background:var(--surface);padding:14px;border-radius:12px;box-shadow:var(--card-shadow);min-width:140px}
+  .stat-card .num{font-size:20px;color:var(--brand);font-weight:800}
+  .stat-card .label{color:var(--muted);font-size:13px;margin-top:6px}
+
+  /* aside actions (newsletter, partner) */
+  .aside-card{background:linear-gradient(180deg,#fff,#fcfcff);padding:18px;border-radius:12px;box-shadow:var(--card-shadow)}
+  .aside-card input{width:100%;padding:10px;border-radius:8px;border:1px solid #eef3f8;margin-bottom:10px}
+
+  /* -------------------------
+     ABOUT + APPROACH
+     ------------------------- */
+  .about{display:flex;gap:28px;align-items:center;flex-wrap:wrap;padding:38px 0}
+  .about .media{flex:1;min-width:300px;border-radius:12px;overflow:hidden;box-shadow:var(--card-shadow)}
+  .about .media img{width:100%;height:100%;object-fit:cover;display:block}
+  .approach{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+  .approach .pill{flex:1;min-width:220px;background:var(--surface);padding:16px;border-radius:12px;box-shadow:var(--card-shadow)}
+  .approach .pill h4{margin-bottom:8px}
+
+  /* -------------------------
+     FOCUS AREAS / PROGRAMS
+     ------------------------- */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:18px}
+  .program{background:var(--surface);padding:18px;border-radius:12px;box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:12px}
+  .program .thumb{height:130px;border-radius:10px;background-size:cover;background-position:center;overflow:hidden}
+
+  /* -------------------------
+     IMPACT + STORIES
+     ------------------------- */
+  .impact-section{padding:46px 0;background:linear-gradient(180deg,#fff,#f8fbff)}
+  .impact-grid{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  .impact-tile{background:var(--surface);padding:22px;border-radius:12px;min-width:160px;box-shadow:var(--card-shadow);text-align:center}
+  .impact-tile h3{font-size:28px;color:var(--brand)}
+
+  .stories{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .story{background:var(--surface);border-radius:12px;box-shadow:var(--card-shadow);overflow:hidden;display:flex;flex-direction:column}
+  .story .body{padding:16px}
+
+  /* -------------------------
+     RESEARCH / PUBLICATIONS
+     ------------------------- */
+  .pubs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .pub{background:var(--surface);padding:16px;border-radius:12px;box-shadow:var(--card-shadow)}
+  .pub small{color:var(--muted)}
+
+  /* -------------------------
+     PARTNERS / TEAM / CTA
+     ------------------------- */
+  .partners{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;opacity:0.9}
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  .member{background:var(--surface);padding:16px;border-radius:12px;text-align:center;box-shadow:var(--card-shadow)}
+  .donate-cta{background:linear-gradient(90deg,var(--brand),#0e3f64);color:white;padding:28px;border-radius:12px;text-align:center;margin-top:28px}
+
+  /* -------------------------
+     CONTACT + FOOTER
+     ------------------------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+  .contact-form{background:var(--surface);padding:18px;border-radius:12px;box-shadow:var(--card-shadow)}
+  footer.site-footer{background:#052233;color:#dbeafe;padding:40px 0;margin-top:40px}
+  footer .grid{display:grid;grid-template-columns:1fr 180px 180px;gap:24px}
+  footer a{color:#cfe8ff}
+
+  /* -------------------------
+     RESPONSIVE
+     ------------------------- */
+  @media (max-width:1024px){.hero{grid-template-columns:1fr 340px}.team-grid{grid-template-columns:repeat(3,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}.stories{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:720px){
+    nav.primary{display:none}
+    .menu-toggle{display:block}
+    .hero{grid-template-columns:1fr;gap:20px}
+    .container{padding:0 16px}
+    .team-grid{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:1fr}
+    .stories{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .site-header .container{gap:12px}
+  }
+
+  /* small helpers */
+  .muted{color:var(--muted)}
+  .center{text-align:center}
+  .small{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+  <!-- Top info -->
+  <div class="topbar">Working with governments & communities to design, pilot and scale solutions for equitable development</div>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="brand" aria-label="Swaniti Foundation">
+        <div class="logo" aria-hidden="true">S</div>
+        <div>
+          <h4>Swaniti Foundation</h4>
+          <div class="small muted">Evidence • Policy • Implementation</div>
+        </div>
+      </div>
+
+      <nav class="primary" role="navigation" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#initiatives">Initiatives</a>
+        <a href="#impact">Impact</a>
+        <a href="#research">Research</a>
+        <a href="#stories">Stories</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="nav-cta" href="#donate">Donate</a>
+        <div class="menu-toggle" aria-hidden="true">☰</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="container" id="top" role="main">
+    <section class="hero" aria-label="Main introduction">
+      <div>
+        <div class="eyebrow">National & Sub-national Partnerships</div>
+        <h1>Strengthening public systems so communities receive the services they deserve</h1>
+        <p>We work closely with state and local governments, community groups and development partners to design policies, pilot solutions and scale interventions that improve outcomes in health, livelihoods and climate resilience.</p>
+
+        <div class="controls">
+          <a class="btn-primary" href="#initiatives">Explore Our Initiatives</a>
+          <a class="btn-ghost" href="#research">View Research</a>
+        </div>
+
+        <div class="stats-row" role="list" aria-label="Key impact figures">
+          <div class="stat-card" role="listitem">
+            <div class="num">12+ M</div>
+            <div class="label small">Lives impacted</div>
+          </div>
+          <div class="stat-card" role="listitem">
+            <div class="num">35+</div>
+            <div class="label small">Policy reforms</div>
+          </div>
+          <div class="stat-card" role="listitem">
+            <div class="num">100+</div>
+            <div class="label small">Government partners</div>
+          </div>
+        </div>
+      </div>
+
+      <aside aria-label="Actions" style="display:flex;flex-direction:column;gap:14px;">
+        <div class="aside-card" aria-hidden="false">
+          <strong style="display:block;margin-bottom:8px;color:var(--brand)">Partner with us</strong>
+          <p class="small muted">Collaborate on field pilots, policy design and scaling strategies.</p>
+          <div style="margin-top:12px">
+            <a class="btn-primary" href="#contact" style="display:inline-block">Get in Touch</a>
+          </div>
+        </div>
+
+        <div class="aside-card">
+          <strong style="display:block;margin-bottom:8px;color:var(--brand)">Newsletter</strong>
+          <p class="small muted">Policy insights and field stories — once a month.</p>
+          <form onsubmit="event.preventDefault();alert('Subscribed — demo');">
+            <input type="email" placeholder="Email address" aria-label="Email address" required />
+            <button style="width:100%;padding:10px;border-radius:8px;background:var(--brand);color:#fff;border:none;font-weight:700">Subscribe</button>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about" aria-labelledby="about-heading">
+      <div style="flex:1;min-width:300px">
+        <h2 id="about-heading">About Swaniti Foundation</h2>
+        <p class="muted">Swaniti is a non-profit that partners with governments and communities to strengthen systems and scale development solutions. We combine field experience, policy research and implementation support to improve service delivery and livelihoods across regions.</p>
+
+        <div class="approach" role="list">
+          <div class="pill" role="listitem">
+            <h4>Policy Advisory</h4>
+            <p class="small muted">Evidence-backed briefs and strategic guidance for state and national decision-makers.</p>
+          </div>
+          <div class="pill" role="listitem">
+            <h4>Implementation Support</h4>
+            <p class="small muted">Field-level pilots, capacity building and operational support to scale effective programs.</p>
+          </div>
+          <div class="pill" role="listitem">
+            <h4>Research & Learning</h4>
+            <p class="small muted">Rigorous evaluations and reports to inform policy and practice.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="media" style="flex:1;min-width:300px">
+        <img src="https://images.unsplash.com/photo-1523958203904-cdcb402031fd?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3d03fe3e4f3fe2946f3c8a0f4e6f7841" alt="Field team working with community">
+      </div>
+    </section>
+
+    <!-- INITIATIVES -->
+    <section id="initiatives" aria-labelledby="initiatives-heading">
+      <h2 id="initiatives-heading">Focus Areas</h2>
+      <p class="small muted">Integrated programs that bridge policy, practice and people.</p>
+
+      <div class="grid-3" role="list" aria-label="Programs">
+        <article class="program" role="listitem" aria-labelledby="p1">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=1400&auto=format&fit=crop');"></div>
+          <h3 id="p1">Climate Resilience & Energy</h3>
+          <p class="muted">Local adaptation planning, finance mechanisms and sustainable livelihoods to build resilience at scale.</p>
+          <a class="small" href="#research">Learn more →</a>
+        </article>
+
+        <article class="program" role="listitem" aria-labelledby="p2">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1400&auto=format&fit=crop');"></div>
+          <h3 id="p2">Health & Nutrition</h3>
+          <p class="muted">Partnering with states to strengthen delivery of maternal and child health, micronutrients and community nutrition programs.</p>
+          <a class="small" href="#research">Learn more →</a>
+        </article>
+
+        <article class="program" role="listitem" aria-labelledby="p3">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1548095115-45697e1b4099?q=80&w=1400&auto=format&fit=crop');"></div>
+          <h3 id="p3">Livelihoods & Local Economies</h3>
+          <p class="muted">Value chain interventions, market linkages and skills programs to expand economic opportunities.</p>
+          <a class="small" href="#research">Learn more →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section id="impact" class="impact-section" aria-labelledby="impact-heading">
+      <h2 id="impact-heading">Impact</h2>
+      <p class="small muted">Measured outcomes and systems strengthened across geographies.</p>
+
+      <div class="impact-grid" role="list">
+        <div class="impact-tile" role="listitem">
+          <h3>12M+</h3>
+          <div class="small muted">People reached</div>
+        </div>
+        <div class="impact-tile" role="listitem">
+          <h3>35+</h3>
+          <div class="small muted">Policy changes influenced</div>
+        </div>
+        <div class="impact-tile" role="listitem">
+          <h3>100+</h3>
+          <div class="small muted">Government partnerships</div>
+        </div>
+      </div>
+
+      <div class="stories" id="stories" aria-label="Field stories">
+        <article class="story" role="article" aria-labelledby="s1">
+          <div style="height:160px;background-image:url('https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=1400&auto=format&fit=crop');background-size:cover;background-position:center"></div>
+          <div class="body">
+            <h4 id="s1">“Local governance changed how services reached remote villages.”</h4>
+            <p class="muted small">A district official describes the improvements in targeting and delivery after implementing a Swaniti pilot.</p>
+            <a class="small" href="#research">Full story →</a>
+          </div>
+        </article>
+
+        <article class="story" role="article" aria-labelledby="s2">
+          <div style="height:160px;background-image:url('https://images.unsplash.com/photo-1520975911276-2b7b7b2b2b6b?q=80&w=1400&auto=format&fit=crop');background-size:cover;background-position:center"></div>
+          <div class="body">
+            <h4 id="s2">Community-led solutions for livelihoods</h4>
+            <p class="muted small">How a value-chain intervention increased household income sustainably.</p>
+            <a class="small" href="#research">Full story →</a>
+          </div>
+        </article>
+
+        <article class="story" role="article" aria-labelledby="s3">
+          <div style="height:160px;background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1400&auto=format&fit=crop');background-size:cover;background-position:center"></div>
+          <div class="body">
+            <h4 id="s3">Scaling maternal nutrition services</h4>
+            <p class="muted small">From pilot to statewide adoption: lessons and outcomes.</p>
+            <a class="small" href="#research">Full story →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESEARCH / PUBLICATIONS -->
+    <section id="research" aria-labelledby="research-heading">
+      <h2 id="research-heading">Research & Publications</h2>
+      <p class="small muted">Evidence and practical guidance for policymakers and implementers.</p>
+
+      <div class="pubs" role="list">
+        <article class="pub" role="listitem">
+          <small>Report · 2024</small>
+          <h4>District Climate Action: Financing & Implementation</h4>
+          <p class="small muted">A review of financing gaps and subnational solutions.</p>
+          <a class="small" href="#">Download PDF →</a>
+        </article>
+
+        <article class="pub" role="listitem">
+          <small>Policy Brief · 2025</small>
+          <h4>Operationalizing Nutrition at Scale</h4>
+          <p class="small muted">Practical steps for state-level scale.</p>
+          <a class="small" href="#">Download PDF →</a>
+        </article>
+
+        <article class="pub" role="listitem">
+          <small>Insight · 2024</small>
+          <h4>Digital Tools for Local Governance</h4>
+          <p class="small muted">How digital workflows improved service delivery.</p>
+          <a class="small" href="#">View library →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section aria-labelledby="partners-heading" style="padding:30px 0;">
+      <h2 id="partners-heading">Partners & Collaborations</h2>
+      <p class="small muted">We partner with multi-lateral agencies, state governments and philanthropic partners.</p>
+      <div class="partners" style="margin-top:18px;">
+        <!-- Use real logos with permission; placeholders below -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/UNDP_logo.svg" alt="UNDP" style="height:36px;opacity:0.9">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/World_Bank_logo.svg" alt="World Bank" style="height:36px;opacity:0.9">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Unicef_Logo.png" alt="UNICEF" style="height:36px;opacity:0.9">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Niti_Aayog_Logo.svg" alt="NITI Aayog" style="height:36px;opacity:0.9">
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section aria-labelledby="team-heading">
+      <h2 id="team-heading">Leadership & Team</h2>
+      <p class="small muted">Experienced practitioners, policy advisors and researchers.</p>
+
+      <div class="team-grid" role="list" aria-label="Team">
+        <div class="member" role="listitem"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" alt="" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px"><strong>Dr. A. Sharma</strong><div class="small muted">Executive Director</div></div>
+        <div class="member" role="listitem"><img src="https://images.unsplash.com/photo-1545996124-1b9e1d3d8e7c?q=80&w=400&auto=format&fit=crop" alt="" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px"><strong>S. Verma</strong><div class="small muted">Head — Programs</div></div>
+        <div class="member" role="listitem"><img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=400&auto=format&fit=crop" alt="" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px"><strong>K. Rao</strong><div class="small muted">Research Lead</div></div>
+        <div class="member" role="listitem"><img src="https://images.unsplash.com/photo-1545993522-1b980f5f9b2b?q=80&w=400&auto=format&fit=crop" alt="" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px"><strong>M. Singh</strong><div class="small muted">Operations Director</div></div>
+      </div>
+    </section>
+
+    <!-- DONATE CTA -->
+    <section id="donate" aria-labelledby="donate-heading">
+      <div class="donate-cta">
+        <h2 id="donate-heading">Support systems that work</h2>
+        <p class="small muted">Your support helps us test models, scale effective programs and inform policy decisions — with rigorous monitoring and public reporting.</p>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:14px">
+          <a class="btn-primary" href="#" style="padding:12px 20px">Donate — One Time</a>
+          <a class="btn-ghost" href="#" style="padding:12px 20px">Donate — Monthly</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p class="small muted">Partnerships, media or research queries — we welcome collaboration.</p>
+
+      <div class="contact-grid" style="margin-top:18px">
+        <form class="contact-form" onsubmit="event.preventDefault();alert('Message sent — demo');" aria-label="Contact form">
+          <label class="small" for="name">Name</label>
+          <input id="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #eef3f8;margin-bottom:10px">
+
+          <label class="small" for="email">Email</label>
+          <input id="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #eef3f8;margin-bottom:10px">
+
+          <label class="small" for="message">Message</label>
+          <textarea id="message" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #eef3f8;min-height:120px;margin-bottom:10px"></textarea>
+
+          <button style="padding:12px 16px;border-radius:10px;background:var(--brand);color:#fff;border:none;font-weight:700">Send Message</button>
+        </form>
+
+        <div style="align-self:start">
+          <div class="aside-card">
+            <strong>Office</strong>
+            <p class="small muted" style="margin-top:6px">Swaniti Foundation — New Delhi (head office)</p>
+            <p class="small muted">Email: info@swaniti.org<br/>Phone: +91 11 1234 5678</p>
+            <div style="margin-top:12px" class="partners">
+              <a href="#" class="small">Twitter</a>
+              <a href="#" class="small">LinkedIn</a>
+              <a href="#" class="small">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="grid">
+        <div>
+          <h3 style="color:var(--accent);margin-bottom:6px">Swaniti Foundation</h3>
+          <p class="small muted">Registered NGO — committed to transparent operations and public reporting.</p>
+          <p class="small muted">© <span id="year"></span> Swaniti Foundation</p>
+        </div>
+
+        <div>
+          <h4 class="small" style="color:#cfe8ff">Explore</h4>
+          <ul style="list-style:none;padding:0;margin:0">
+            <li><a href="#initiatives">Initiatives</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#stories">Stories</a></li>
+            <li><a href="#donate">Donate</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="small" style="color:#cfe8ff">Legal & Info</h4>
+          <ul style="list-style:none;padding:0;margin:0">
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Annual Reports</a></li>
+            <li><a href="#">Finance & Accounts</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:18px;text-align:center" class="small muted">Designed for clarity, transparency and institutional trust.</div>
+    </div>
+  </footer>
+
+<script>
+  // small UX bits: set year and smooth anchors
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const href = a.getAttribute('href');
+      if(href.length>1){
+        e.preventDefault();
+        const el = document.querySelector(href);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Swaniti Foundation — Header</title>
+<link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="home.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.2.0/mdb.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="topbar"><marquee> Working with governments & communities to design, pilot and scale solutions</marquee></div>
+
+<header class="site-header">
+  <div class="container">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="small">
+        <h4>Swaniti Foundation</h4>
+        <div class="small muted">Evidence • Policy • Implementation</div>
+      </div>
+    </div>
+
+    <nav class="primary">
+      <a href="#about">About</a>
+      <a href="#initiatives">Initiatives</a>
+      <a href="#impact">Impact</a>
+      <a href="#research">Research</a>
+      <a href="#stories">Stories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="nav-cta" href="#donate">Donate</a>
+      <div class="menu-toggle">☰</div>
+    </div>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Making an Impact Across Communities</div>
+    <h1>Strengthening Systems, Empowering People</h1>
+    <p>We partner with governments, communities, and organizations to create sustainable solutions that improve health, education, and livelihoods.</p>
+    <div class="hero-buttons">
+      <a class="btn-primary" href="#initiatives">Our Programs</a>
+      <a class="btn-ghost" href="#donate">Donate Now</a>
+    </div>
+  </div>
+</section id="about">
+
+<section class="about-section" id="about">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>About Our NGO</h2>
+      <p>We partner with governments and communities to design, pilot, and scale solutions for equitable development. Our work spans health, education, livelihoods, and climate resilience.</p>
+      <div class="about-cards">
+        <div class="card"><strong>Policy Advisory:</strong><p>Evidence-backed briefs & strategic guidance.</p></div>
+        <div class="card"><strong>Implementation:</strong><p>Field pilots & scaling effective programs.</p></div>
+        <div class="card"><strong>Research & Learning:</strong><p>Rigorous evaluations informing policy.</p></div>
+      </div>
+    </div>
+    <div class="about-media">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="NGO field work">
+    </div>
+  </div>
+</section>
+
+<section class="initiatives-section" id="initiatives">
+  <div class="container">
+    <h2>Our Initiatives</h2>
+    <div class="initiatives-grid">
+      <div class="initiative-card">
+        <img src="ini.jpeg1" alt="Health">
+        <div class="card-content">
+          <h3>Health & Wellness</h3>
+          <p>Accessible healthcare and wellness programs for underserved communities.</p>
+        </div>
+      </div>
+      <div class="initiative-card">
+        <img src="ini2.jpg" alt="Education">
+        <div class="card-content">
+          <h3>Education for All</h3>
+          <p>Schools and resources to ensure quality education for every child.</p>
+        </div>
+      </div>
+      <div class="initiative-card">
+        <img src="ini3.jpeg" alt="Sustainability">
+        <div class="card-content">
+          <h3>Sustainability Projects</h3>
+          <p>Eco-friendly and sustainable solutions for long-term community impact.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="initiatives-section" id="initiatives">
+  <div class="container">
+    <h2>Our Impact</h2>
+    <div class="initiatives-grid">
+      <div class="initiative-card">
+        <img src="Skill_Development_Training_at_RGNIYD_Regional_centre_Chandigarh.jpg" alt="Health">
+        <div class="card-content">
+          <h3>Sharing best practices for Public Financial Management System</h3>
+          <p>Accessible healthcare and wellness programs for underserved communities.</p>
+        </div>
+      </div>
+      <div class="initiative-card">
+        <img src="IMG20180610154908-2048x1152.jpg" alt="Education">
+        <div class="card-content">
+          <h3>Technical Support Units to enable Direct Benefit Transfer programs</h3>
+          <p>Schools and resources to ensure quality education for every child.</p>
+        </div>
+      </div>
+      <div class="initiative-card">
+        <img src="Hamirpur-case-story.jpg" alt="Sustainability">
+        <div class="card-content">
+          <h3>Creating a sustainable solution for menstrual hygiene</h3>
+          <p>Eco-friendly and sustainable solutions for long-term community impact.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.2.0/mdb.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav.primary');
+toggle.addEventListener('click',()=>{
+  if(nav.style.display==='flex'){nav.style.display='none'}
+  else{
+    nav.style.display='flex';
+    nav.style.flexDirection='column';
+    nav.style.width='100%';
+    nav.style.background='var(--surface)';
+    nav.style.padding='10px 0';
+  }
+});
+</script>
+</html>
